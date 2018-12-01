@@ -1,16 +1,27 @@
 
 wynik = 0
-
+tablica = []
+przerwij = 0
 
 with open('tekst.txt', 'r+') as f:
-    lista_linii = [line.rstrip() for line in f]
-    print(lista_linii)
+    lista_linii = [linia.rstrip() for linia in f]
 
-for wartosc in lista_linii:
-    if wartosc[0] == "+":
-        wynik=int(wynik) + int(wartosc[1:])
-    elif wartosc[0] == "-":
-        wynik=int(wynik) - int(wartosc[1:])
-    print(wynik)
-
-
+while True:
+    for wartosc in lista_linii:
+        if wartosc[0] == "+":
+            wynik = int(wynik) + int(wartosc[1:])
+            tablica.append(wynik)
+            if tablica.count(wynik) > 1:
+                print("Powtórzony: %d" % wynik)
+                przerwij = 1
+                break
+        elif wartosc[0] == "-":
+            wynik = int(wynik) - int(wartosc[1:])
+            tablica.append(wynik)
+            if tablica.count(wynik) > 1:
+                print("Powtórzony: %d" % wynik)
+                przerwij = 1
+                break
+    if przerwij == 1:
+        break
+    print(len(tablica))
