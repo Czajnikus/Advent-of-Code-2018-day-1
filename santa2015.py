@@ -11,14 +11,12 @@ while pietro != -1:
             pietro += 1
             n += 1
             if pietro == -1:
-                print('ddd')
                 break
         elif x == ")":
             pietro -= 1
             n += 1
             if pietro == -1:
-                print('dd')
                 break
 
-print(pietro)
-print(n)
+print(pietro) # na którym aktualnie piętrze jest Mikołaj
+print(n) # ile ruchów Mikołaj wykonał, aby po raz pierwszy wejść do piwnicy (-1)
